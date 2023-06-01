@@ -6,9 +6,12 @@ import { data } from "../data/data";
 
 export function getAsteroidDataByName(data, asteroidName) {
   // Your code goes here...
+  return data.asteroids.find((asteroid) => {
+    if (asteroid.name.includes(asteroidName)) {
+      return asteroid;
+    }
+  });
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-10"
