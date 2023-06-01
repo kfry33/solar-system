@@ -6,16 +6,14 @@ import { data } from "../data/data";
 
 export function getPlanetsNamesWithMoons(data) {
   // Your code goes here...
-  let haveMoons = data.planets.filter((planet) => {
+  let haveMoons = [];
+  data.planets.filter((planet) => {
     if (planet.moons) {
-      return planet.moons;
+      haveMoons.push(planet.name);
     }
-  }); return haveMoons.map((planet) => {
-    return planet.name;
   });
+  return haveMoons;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-7"
