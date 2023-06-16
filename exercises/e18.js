@@ -3,10 +3,41 @@
  * Return the year with the greatest number of Asteroids discoveries
  * Return example: 1902
  */
-
+export function maxBy(array) {
+  // Your code goes here...
+  let min = 0;
+  let output;
+  for (let person of array) {
+    let value = person;
+    if (value.count > min) {
+      min = value.count;
+      output = person;
+    }
+  }
+  return output;
+}
 export function getGreatestDiscoveryYear(data) {
   // Your code goes here...
   // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  let duplicateAsts = [];
+  let index = -1;
+  // let count = 0;
+  for (let i = 0; i < data.asteroids.length; i++) {
+    index = -1;
+    for (let j = 0; j < duplicateAsts.length; j++) {
+      if (duplicateAsts[j].year == data.asteroids[i].discoveryYear) {
+        index = j;
+      }
+    }
+
+    if (index != -1) {
+      duplicateAsts[index].count++;
+    } else {
+      duplicateAsts.push({ year: data.asteroids[i].discoveryYear, count: 1 });
+    }
+  }
+  let output = maxBy(duplicateAsts);
+  return output.year;
 }
 
 // === TEST YOURSELF ===
