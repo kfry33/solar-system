@@ -5,13 +5,8 @@ import { data } from "../data/data";
 // Return example: ['name1', 'name2', ... , 'nameN']
 
 export function getAsteroidNames(data) {
-  // Your code goes here...
-  let asteroidName = data.asteroids.map(function(asteroid) {
-    return asteroid.name;
-  }); return asteroidName;
+  return data.asteroids.map((asteroid) => asteroid.name);
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-2"

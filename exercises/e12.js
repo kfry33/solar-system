@@ -5,14 +5,12 @@ import { data } from "../data/data";
 // Return example: 42
 
 export function allPlanetsMoonsCount(data) {
-  // Your code goes here...
-  let sum = 0;
-  data.planets.filter((planet) => {
-    if (planet.moons) {
-      return (sum += planet.moons.length);
-    }
-  });
-  return sum;
+  return data.planets
+    .filter((planet) => planet.moonsCount)
+    .map((planet) => planet.moonsCount)
+    .reduce((acc, val) => {
+      return acc + val;
+    }, 0);
 }
 
 // === TEST YOURSELF ===
